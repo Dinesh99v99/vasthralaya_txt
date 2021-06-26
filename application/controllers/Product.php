@@ -17,9 +17,20 @@ class Product extends CI_Controller {
 
 	public function getDataByID()
 	{
-		$userId = $_POST['userid'];
-		$data  = $this->product_model->getDatabyId($userId);
-		// print_r($data);
+		// print_r($_POST);die;
+	
+		$userId = $_POST['pid'];
+
+		if($userId == 0){
+			$data  = $this->product_model->getDatabyId($userId);
+
+		}else if ( $userId==1 ){
+			$data  = $this->product_model->getDatabyfilter($userId);
+		}else{
+			$data  = $this->product_model->getDatabyfiltersecond($userId);	
+		}
+
+		// $data  = $this->product_model->getDatabyId($userId);
 		// for ($i=0; $i < count($data); $i++) { 
 		// 	echo $data[$i].customer_name;
 		// }
