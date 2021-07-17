@@ -1,5 +1,12 @@
 <h3>Upload a picture!</h3>
 <hr />
+
+<div style="color:red">
+    <?php echo validation_errors(); ?>
+  <?php if(isset($error)){print $error;}?>
+</div>
+<?php echo form_open_multipart('upload/file_data');?>
+
   <div class="form-group">
     <label for="pic_title">Picture Title*:</label>
     <input type="text" class="form-control" name="pic_title" value="<?= set_value('pic_title'); ?>" id="pic_title">

@@ -29,6 +29,7 @@ class Upload extends CI_Controller{
             //get the form values
             $data['pic_title'] = $this->input->post('pic_title', TRUE);
             $data['pic_desc'] = $this->input->post('pic_desc', TRUE);
+            // print_r($data);
 
             //file upload code 
             //set file upload settings 
@@ -86,8 +87,18 @@ $result['data']=$this->product_model->update_model($pic_id);
        
     }
     public function update_upload(){
-		// print_r('hiiii');die;
-        $this->form_validation->set_rules('pic_title', 'Picture Title', 'required');
+        redirect($base_url);die;
+        // if($this->input->post('submit'))
+		// // {echo('hii');
+		// $n=$this->input->post('pic_title');
+		// $e=$this->input->post('pic_title');
+        // // print_r($n);die;
+		// $this->Hello_Model->updaterecords($n,$e,$m,$id);
+		// // redirect(base_url());
+		// Redirect($base_url);
+
+		// }
+        $this->form_validation->set_rules('pic_title', 'pic_desc', 'required');
 
         if ($this->form_validation->run() == FALSE){
             $this->load->view('update_form');
@@ -96,34 +107,9 @@ $result['data']=$this->product_model->update_model($pic_id);
             //get the form values
             $data['pic_title'] = $this->input->post('pic_title', TRUE);
             $data['pic_desc'] = $this->input->post('pic_desc', TRUE);
+            print_r($data);die;
+        }
 
-            //file upload code 
-            //set file upload settings 
-            $config['upload_path']          = APPPATH. '../assets/image/';
-            $config['allowed_types']        = 'gif|jpg|png';
-            $config['max_size']             = 100;
-
-            $this->load->library('upload', $config);
-
-            if ( ! $this->upload->do_upload('pic_file')){
-                $error = array('error' => $this->upload->display_errors());
-                $this->load->view('upload_form', $error);
-            }else{
-
-                //file is uploaded successfully
-                //now get the file uploaded data 
-                $upload_data = $this->upload->data();
-
-                //get the uploaded file name
-                $data['pic_file'] = $upload_data['file_name'];
-
-                //store pic data to the db
-                $this->product_model->storeupdate_pic_data($data);
-
-                redirect($base_url);
-                // Redirect($base_url);
-            }
-            $this->load->view('footer');
         }
     }
-    }
+    
