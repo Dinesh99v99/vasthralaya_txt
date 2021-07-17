@@ -7,7 +7,7 @@ class Product extends CI_Controller {
 		$this->load->model('product_model');
 	}
 
-	public function index()
+	public function index1()
 	{	
 		$data['products']  = $this->product_model->getAllProducts();
 		// print_r($data);die;
@@ -57,4 +57,22 @@ class Product extends CI_Controller {
 		$response .= "</table>";
 		echo $response;
 	}
+	
+
+	public function	create(){
+
+		$data['title'] = "Inser image";
+		$this->load->view('products/image',$data);
+	}
+
+	public function index()
+    {
+        // $this->load->model('');
+        $data['picture_list'] = $this->product_model->get_all_pics();
+        
+        $this->load->view('header');
+        $this->load->view('picture_list', $data);
+        $this->load->view('footer');
+    }
+
 }

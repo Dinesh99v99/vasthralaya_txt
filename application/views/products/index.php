@@ -1,4 +1,4 @@
-<html>
+<!-- <html>
 	<head>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -126,6 +126,7 @@
 								<tr>
 									<th scope="col">customer Id</th>
 									<th scope="col">customer Name</th>
+									 <th scope="col">image</th>
 									<th scope="col">Description</th>
 									<th scope="col">Title</th>								
 
@@ -140,6 +141,8 @@
 									<td scope="row">
 									<button type="button" class="mybutton"  id="mybutton"><?=$product->permision_id?></button></td>
 										<td><?=$product->customer_name?></td>
+										
+										<td><?php echo "<img src='" . base_url().$product->image."' width=150px; height=100px;>";?></td>
 										<td><?=$product->description?></td>
 										<td><?=$product->title?></td>
 
@@ -157,7 +160,6 @@
 			</div>
 		</div>
 		
-
   <!-- The Modal -->
   <div class="modal" id="myModal">
     <div class="modal-dialog">
@@ -242,4 +244,4 @@ $('.permision_id').click(function(){
 });
 
 </script> -->
-</html>
+</html> -->
